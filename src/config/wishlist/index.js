@@ -7,4 +7,5 @@ export default {
   note: {
     markdown: yesNo(process.env.MARKDOWN || false),
   },
+  disableSuggestForGuests: yesNo(process.env.DISABLE_SUGGEST_FOR_GUESTS || false),
 }

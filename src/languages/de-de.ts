@@ -193,7 +193,7 @@ export const strings = {
   WISHLIST_MOVE_ITEM_DOWN: 'Eintrag runterschieben',
   WISHLIST_MOVE_ITEM_BOTTOM: 'Eintrag ans Ende setzen',
   WISHLIST_MOVE_ITEM_TOP: 'Eintrag an den Anfang setzen',
-  WISHLIST_MOVE_ITEM_UP: 'Einstrag hochschieben',
+  WISHLIST_MOVE_ITEM_UP: 'Eintrag hochschieben',
   WISHLIST_MOVE_SUCCESS: 'Eintrag erfolgreich verschoben!',
   WISHLIST_MOVE_TOP: 'An den Anfang setzen',
   WISHLIST_MOVE_UNKNOWN_DIRECTION: 'Unbekannte Richtung',
@@ -215,6 +215,7 @@ export const strings = {
   WISHLIST_REMOVE_GUARD: 'Falscher Nutzer',
   WISHLIST_REMOVE_SUCCESS: 'Erfolgreich von der Wunschliste entfernt',
   WISHLIST_SUGGEST: 'Eintrag vorschlagen',
+  WISHLIST_SUGGEST_GUEST_DISABLED: 'Gäste dürfen keine Einträge vorschlagen', // should never happen unless someone makes their own http requests
   WISHLIST_TITLE: (name) => `${_CC.config.siteTitle} - Wunschliste - ${name}`,
   WISHLIST_UNPLEDGE_GUARD: 'Du hast das nicht reserviert', // should never happen unless someone makes their own http requests
   WISHLIST_UNPLEDGE_SUCCESS: 'Reservierung erfolgreich aufgehoben!',

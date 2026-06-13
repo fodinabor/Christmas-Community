@@ -234,6 +234,7 @@ export const strings = {
   WISHLIST_REMOVE_GUARD: 'Not correct user',
   WISHLIST_REMOVE_SUCCESS: 'Successfully removed from wishlist',
   WISHLIST_SUGGEST: 'Suggest item',
+  WISHLIST_SUGGEST_GUEST_DISABLED: 'Guests are not allowed to suggest items', // should never happen unless someone makes their own http requests
   WISHLIST_TITLE: (name) => `${_CC.config.siteTitle} - Wishlist - ${name}`,
   WISHLIST_UNPLEDGE_GUARD: 'You did not pledge for this', // should never happen unless someone makes their own http requests
   WISHLIST_UNPLEDGE_SUCCESS: 'Successfully unpledged for item!',

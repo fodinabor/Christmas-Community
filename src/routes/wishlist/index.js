@@ -86,6 +86,11 @@ export default function (db) {
     try {
       const wishlist = await wishlistManager.get(req.params.user)
 
+      const isGuest = req.user._id === '_CCUNKNOWN'
+      if (req.body.suggest && isGuest && _CC.config.wishlist.disableSuggestForGuests) {
+        throw new Error(_CC.lang('WISHLIST_SUGGEST_GUEST_DISABLED'))
+      }
+
       const { nonFatalErrors } = await wishlist.add({
         itemUrlOrName: req.body.itemUrlOrName,
         suggest: req.body.suggest,

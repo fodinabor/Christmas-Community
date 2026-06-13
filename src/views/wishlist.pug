@@ -16,12 +16,13 @@ block title
               i.fas.fa-sync-alt
         .level-item
           span= lang('WISHLIST_TITLE', name)
-      .level-right
-        .level-item 
-          a(href="#addWishlistItem").button.button.is-primary.is-rounded
-            span.icon
-              i.fas.fa-plus
-            span= lang('WISHLIST_ADD_NEW')
+      if !(_CC.config.wishlist.disableSuggestForGuests && req.user._id === '_CCUNKNOWN')
+        .level-right
+          .level-item 
+            a(href="#addWishlistItem").button.button.is-primary.is-rounded
+              span.icon
+                i.fas.fa-plus
+              span= lang('WISHLIST_ADD_NEW')
               
 
 block content
@@ -268,30 +269,31 @@ block content
                   .field.inline
                     .control.inline
                       input.inline.button(type='submit' value=lang('WISHLIST_MOVE_ITEM_BOTTOM'))
-  form(method='POST')#addWishlistItem
-    .field
-      label.label!=lang('WISHLIST_URL_LABEL')
-      .control.has-icons-left
-        input.input(
-          type='text',
-          name='itemUrlOrName',
-          placeholder=lang('WISHLIST_URL_PLACEHOLDER')
-        )
-        span.icon.is-small.is-left
-          i.fas.fa-gift
-    .field
-      label.label= lang('WISHLIST_NOTE')
-      .control
-        textarea.textarea(
-          name='note',
-          placeholder=lang('WISHLIST_OPTIONAL')
-        )
-    .field.is-grouped
-      .control
-        input.button(type='submit' value=(req.user._id === req.params.user ? lang('WISHLIST_ADD') : lang('WISHLIST_PLEDGE_ITEM')))
-      if req.user._id !== req.params.user
+  if !(_CC.config.wishlist.disableSuggestForGuests && req.user._id === '_CCUNKNOWN')
+    form(method='POST')#addWishlistItem
+      .field
+        label.label!=lang('WISHLIST_URL_LABEL')
+        .control.has-icons-left
+          input.input(
+            type='text',
+            name='itemUrlOrName',
+            placeholder=lang('WISHLIST_URL_PLACEHOLDER')
+          )
+          span.icon.is-small.is-left
+            i.fas.fa-gift
+      .field
+        label.label= lang('WISHLIST_NOTE')
         .control
-          input.inline.button(type='submit', value=lang('WISHLIST_SUGGEST'), name='suggest')
+          textarea.textarea(
+            name='note',
+            placeholder=lang('WISHLIST_OPTIONAL')
+          )
+      .field.is-grouped
+        .control
+          input.button(type='submit' value=(req.user._id === req.params.user ? lang('WISHLIST_ADD') : lang('WISHLIST_PLEDGE_ITEM')))
+        if req.user._id !== req.params.user
+          .control
+            input.inline.button(type='submit', value=lang('WISHLIST_SUGGEST'), name='suggest')
   script(src=`${_CC.config.base}js/wishlist.js`)
 
 block print
